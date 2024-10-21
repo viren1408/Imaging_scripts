@@ -36,7 +36,7 @@ def get_wcs_translation(file1, file2):
     world_coords_file2 = wcs2.pixel_to_world(crpix1_file2[0],crpix1_file2[1])
     world_shift = world_coords_file2.spherical_offsets_to(world_coords_file1) #getting spherical offsets (look documentation!)
 
-    world_shift_arcsec = (world_shift[0].to(Angle('arcsec')), world_shift[1].to(Angle('arcsec')))
+    world_shift_arcsec = (world_shift[0].degree * 3600, world_shift[1].degree * 3600)
 
     return pixel_shift, world_shift_arcsec
 
